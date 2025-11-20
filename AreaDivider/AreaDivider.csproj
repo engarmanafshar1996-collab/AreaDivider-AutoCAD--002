@@ -11,9 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Changed version to 25.1.0 (AutoCAD 2025) which is available on NuGet -->
-    <PackageReference Include="AutoCAD.NET.Core" Version="25.1.0" ExcludeAssets="runtime" />
-    <PackageReference Include="AutoCAD.NET.Model" Version="25.1.0" ExcludeAssets="runtime" />
+    <!-- Using official ObjectARX NuGet packages for AutoCAD 2025/2026 compatibility with .NET Framework 4.8 -->
+    <PackageReference Include="AutoCAD.ObjectARX" Version="25.0.0" ExcludeAssets="runtime" />
     <PackageReference Include="System.Windows.Forms" Version="4.0.0" />
   </ItemGroup>
 
