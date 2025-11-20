@@ -8,8 +8,8 @@
     <RootNamespace>AreaDivider</RootNamespace>
     <AssemblyName>AreaDivider</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <!-- FINAL FIX: Auto-generate binding redirects to resolve assembly version conflicts -->
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <!-- FINAL FIX: Skip assembly unification to resolve CS1705 error in cloud build environment -->
+    <SkipUnifyAssemblyReferences>true</SkipUnifyAssemblyReferences>
   </PropertyGroup>
 
   <ItemGroup>
