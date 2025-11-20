@@ -8,8 +8,6 @@
     <RootNamespace>AreaDivider</RootNamespace>
     <AssemblyName>AreaDivider</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <!-- FINAL FIX: Skip assembly unification to resolve CS1705 error in cloud build environment -->
-    <SkipUnifyAssemblyReferences>true</SkipUnifyAssemblyReferences>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,5 +31,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
+
+  <!-- Custom Target to generate the required app.config with binding redirects -->
+  <Target Name="GenerateAppConfig" AfterTargets="Build">
+    <WriteLinesToFile File="$(OutputPath)\$(AssemblyName).dll.config" Lines="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;&lt;configuration&gt;&lt;runtime&gt;&lt;assemblyBinding xmlns=&quot;urn:schemas-microsoft-com:asm.v1&quot;&gt;&lt;dependentAssembly&gt;&lt;assemblyIdentity name=&quot;System.Runtime&quot; publicKeyToken=&quot;b03f5f7f11d50a3a&quot; culture=&quot;neutral&quot; /&gt;&lt;bindingRedirect oldVersion=&quot;0.0.0.0-8.0.0.0&quot; newVersion=&quot;4.1.2.0&quot; /&gt;&lt;/dependentAssembly&gt;&lt;/assemblyBinding&gt;&lt;/runtime&gt;&lt;/configuration&gt;" Overwrite="true" />
+  </Target>
 
 </Project>
