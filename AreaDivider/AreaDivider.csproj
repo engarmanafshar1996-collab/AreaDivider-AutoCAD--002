@@ -11,10 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- حذف ارجاعات محلی و جایگزینی با پکیج‌های NuGet -->
-    <PackageReference Include="AutoCAD.NET.Core" Version="26.0.0" ExcludeAssets="runtime" />
-    <PackageReference Include="AutoCAD.NET.Model" Version="26.0.0" ExcludeAssets="runtime" />
-    <PackageReference Include="AutoCAD.NET.Model.Core" Version="26.0.0" ExcludeAssets="runtime" />
+    <!-- Changed version to 25.1.0 (AutoCAD 2025) which is available on NuGet -->
+    <PackageReference Include="AutoCAD.NET.Core" Version="25.1.0" ExcludeAssets="runtime" />
+    <PackageReference Include="AutoCAD.NET.Model" Version="25.1.0" ExcludeAssets="runtime" />
     <PackageReference Include="System.Windows.Forms" Version="4.0.0" />
   </ItemGroup>
 
