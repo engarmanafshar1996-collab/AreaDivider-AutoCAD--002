@@ -11,12 +11,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Corrected NuGet package name for ObjectARX 2025 (compatible with 2026) -->
-    <PackageReference Include="ObjectARX.25.0" Version="25.0.0" ExcludeAssets="runtime" />
-    <PackageReference Include="System.Windows.Forms" Version="4.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <!-- Direct reference to the DLL files uploaded to the References folder in the repository -->
+    <Reference Include="AcCoreMgd">
+      <HintPath>..\References\AcCoreMgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AcDbMgd">
+      <HintPath>..\References\AcDbMgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AcMgd">
+      <HintPath>..\References\AcMgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
