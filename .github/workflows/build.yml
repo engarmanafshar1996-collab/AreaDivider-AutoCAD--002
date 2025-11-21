@@ -2,27 +2,29 @@ name: Build AutoCAD Add-in
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: windows-latest # AutoCAD development typically targets Windows
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
 
+    # Use a specific, older version of MSBuild/VS to avoid System.Runtime conflicts
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v2
+      with:
+        vs-version: '2019' # Using VS 2019 to get a more compatible MSBuild version
 
-    - name: Restore NuGet packages
-      run: msbuild AreaDivider/AreaDivider.csproj /t:Restore
-
-    - name: Build Project
+    - name: Build Solution
       run: msbuild AreaDivider/AreaDivider.csproj /p:Configuration=Release /p:Platform="Any CPU"
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: AreaDivider-DLL
+        name: AreaDivider-Release
         path: AreaDivider/bin/Release/AreaDivider.dll
